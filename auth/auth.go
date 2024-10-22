@@ -52,7 +52,6 @@ func (j *JwtWrapper) ValidateToken(tokenString string) (*JwtClaims, error) {
 		return nil, errors.New("invalid token")
 	}
 
-	fmt.Printf("%+v\n", claims)
 	fmt.Printf("Current Time %v\n", time.Now().Unix())
 
 	if !claims.VerifyExpiresAt(time.Now().Unix(), false) {
